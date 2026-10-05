@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc8
+- Light button on every printer card
+
 ## v0.2.0-rc7
 - **Door while printing, per material** (Settings → Cooling profiles): send “door open” instead of “door close” at the start of a print, e.g. for PLA/PETG against heat creep. Board firmware 1.10 (new signal `M104 S4`; the board's own “door close at print start” fallback now waits for a signal)
 
