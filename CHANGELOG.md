@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc6
+- Print with the door open (Stage 2, P2S / P1S, PLA/PETG/TPU)
+
 ## v0.2.0
 - One dashboard for **any number of printers** (P2S, A1, P1S) with one shared queue and automatic assignment by filament and load
 - Per printer: *Printer only*, *Passive bender* or *FarmLoop Stage 2* board

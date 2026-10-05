@@ -18,6 +18,8 @@ Other models are untested.
 | **Passive bender** | ✓ | – | ✓ | Before the push the bed moves 6× in Z against a fixed bender. *P2S: experimental.* |
 | **FarmLoop Stage 2** | ✓ | ✓ | ✓ | The [board](BOARD.md): P2S door + bender · P1S door + bender (+ optional fan) · A1 bender + fan (no door). |
 
+**Print with the door open** (Stage 2 on P2S / P1S): for PLA, PETG and TPU the board does not close the door at the start or the end, so the print runs with the door open — useful against heat creep. ABS/ASA/PC/PA still print closed. Open the door once by hand before the first print.
+
 Every file is checked before it is sent: it must contain exactly what your choice needs.
 
 ### Several printers
@@ -34,6 +36,8 @@ One queue for all. A job goes to a printer that **has the filament loaded** and 
 P2S ✅ erprobt · A1 ✅ getestet · **P1S 🧪 Beta** (noch kein echter Druck). Andere Modelle ungetestet.
 
 **Zusatz‑Hardware — eine Wahl pro Drucker:** **Nur Drucker** (abkühlen, schieben; bei P2S/P1S die **Tür vor jedem Druck offen lassen**) · **Passiver Bender** (nur P2S/P1S; Bett fährt 6× in Z gegen einen festen Bender; beim P2S experimentell) · **FarmLoop Stage 2** ([Board](BOARD.md): P2S Tür + Bender · P1S Tür + Bender (+ optional Lüfter) · A1 Bender + Lüfter, keine Tür).
+
+**Mit offener Tür drucken** (Stage 2 am P2S/P1S): Bei PLA, PETG und TPU schließt das Board die Tür weder am Anfang noch am Ende — hilft gegen Heat Creep. ABS/ASA/PC/PA drucken weiter geschlossen. Vor dem ersten Druck die Tür einmal von Hand öffnen.
 
 **Mehrere Drucker:** Eine Warteschlange für alle. Ein Auftrag geht an einen Drucker mit **passendem Filament** und der **kürzesten Schlange**; ABS/ASA/PC/PA nur auf geschlossene Drucker. Mit dem Auswahlfeld am Auftrag lässt er sich fest zuweisen.
 
