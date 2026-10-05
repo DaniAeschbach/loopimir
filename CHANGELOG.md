@@ -1,7 +1,7 @@
 # Changelog
 
-## v0.2.0-rc6
-- Print with the door open (Stage 2, P2S / P1S, PLA/PETG/TPU)
+## v0.2.0-rc7
+- **Door while printing, per material** (Settings → Cooling profiles): send “door open” instead of “door close” at the start of a print, e.g. for PLA/PETG against heat creep. Board firmware 1.10 (new signal `M104 S4`; the board's own “door close at print start” fallback now waits for a signal)
 
 ## v0.2.0
 - One dashboard for **any number of printers** (P2S, A1, P1S) with one shared queue and automatic assignment by filament and load
