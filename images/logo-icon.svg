@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="#263238"/>
+  <path d="M 300 150 A 116 116 0 1 1 212 150" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round"/>
+  <polygon points="348,170 300,108 266,176" fill="#ffffff"/>
+  <!-- orange iso cube -->
+  <polygon points="256,286 295,309 256,332 217,309" fill="#F9A03F"/>
+  <polygon points="217,309 256,332 256,378 217,355" fill="#E07400"/>
+  <polygon points="256,332 295,309 295,355 256,378" fill="#F07800"/>
+</svg>

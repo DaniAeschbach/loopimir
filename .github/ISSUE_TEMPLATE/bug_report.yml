@@ -1,0 +1,49 @@
+name: Bug report
+description: Something does not work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Please check [Troubleshooting](https://github.com/DaniAeschbach/loopimir/blob/main/docs/TROUBLESHOOTING.md) first.
+        **Remove access codes and serial numbers** from anything you paste.
+  - type: input
+    id: version
+    attributes:
+      label: Loopimir version
+      description: Shown in the page footer, or run `/opt/loopimir/loopimir --version`
+      placeholder: v0.2.0-rc2
+    validations: {required: true}
+  - type: dropdown
+    id: model
+    attributes:
+      label: Printer model(s)
+      multiple: true
+      options: [Bambu Lab P2S, Bambu Lab A1, Bambu Lab P1S, Other / not listed]
+    validations: {required: true}
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: Extra hardware of the affected printer
+      options: [Printer only, Passive bender, FarmLoop Stage 2, Not sure]
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Send mode
+      options: [LAN, Bambu Studio]
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Screenshots of the printer card / job help.
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: "`journalctl -u loopimir -n 200 --no-pager` (and `slice.log` for slicing problems)"
+      render: shell

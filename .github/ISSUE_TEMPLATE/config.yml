@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Docs — Guide
+    url: https://github.com/DaniAeschbach/loopimir/blob/main/docs/GUIDE.md
+    about: Install and first print, English and German.
+  - name: Docs — Troubleshooting
+    url: https://github.com/DaniAeschbach/loopimir/blob/main/docs/TROUBLESHOOTING.md
+    about: Printer offline, upload fails, queue waits … — check here first.

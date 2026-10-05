@@ -1,0 +1,47 @@
+name: Printer test report
+description: Tell us how a printer / hardware combination worked in real life (very welcome!)
+labels: [test-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports like this move features from 🧪 beta to ✅ proven (see [STATUS.md](https://github.com/DaniAeschbach/loopimir/blob/main/docs/PRINTERS.md)). Success **and** failure are both useful.
+  - type: input
+    id: version
+    attributes:
+      label: Loopimir version
+      placeholder: v0.2.0-rc2
+    validations: {required: true}
+  - type: dropdown
+    id: model
+    attributes:
+      label: Printer
+      options: [Bambu Lab P2S, Bambu Lab A1, Bambu Lab P1S, Other]
+    validations: {required: true}
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: Extra hardware
+      options: [Printer only, Passive bender, FarmLoop Stage 2, FarmLoop Stage 2 + fan]
+    validations: {required: true}
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Send mode
+      options: [LAN, Bambu Studio]
+  - type: input
+    id: material
+    attributes:
+      label: Material
+      placeholder: PLA Basic
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options: [Worked — part ejected, Printed but part did not come off, Push / bend moved wrongly or collided, Failed before the print, Other]
+    validations: {required: true}
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Release temperature that worked, how long cooling took, anything odd. Photos or a short video of the push are gold.
