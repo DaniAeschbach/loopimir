@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc10
+- Camera image refreshes about every minute on every printer (own loop per printer); fixed Studio-mode camera after a Bambu Studio restart
+
 ## v0.2.0-rc9
 - Door open/closed switch on printer cards with a Stage 2 door
 
