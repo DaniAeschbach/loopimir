@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc11
+- Stop print fixed in Bambu Studio mode (verified against the printer state, closes the "task cancelled" pop-up)
+
 ## v0.2.0-rc10
 - Camera image refreshes about every minute on every printer (own loop per printer); fixed Studio-mode camera after a Bambu Studio restart
 
