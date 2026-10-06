@@ -5,12 +5,15 @@ set -euo pipefail
 REPO="DaniAeschbach/loopimir"
 PREFIX="/opt/loopimir"
 BAMBU_URL="${BAMBU_URL:-}"   # optional: direct URL to a Bambu Studio .AppImage; else we try the pinned one below
-BAMBU_PINNED="https://github.com/bambulab/BambuStudio/releases/download/v02.00.03.54/Bambu_Studio_linux_ubuntu-v02.00.03.54.AppImage"
+BAMBU_TAG="${BAMBU_TAG:-v02.08.02.61}"   # tested Bambu Studio version; falls back to the newest release if it is gone
 
 say(){ printf '\033[1;32m==>\033[0m %s\n' "$*"; }
 need_root(){ [ "$(id -u)" = 0 ] && SUDO="" || SUDO="sudo"; }
 need_root
 
+if [ "$(uname -m)" != "x86_64" ]; then
+  echo "Loopimir needs an x86-64 machine (Intel/AMD). This one is $(uname -m) (e.g. Raspberry Pi), which is not supported."; exit 1
+fi
 if ! command -v apt-get >/dev/null; then
   echo "This installer targets Debian/Ubuntu/Mint (apt). On other distros install the deps manually and run the binary."; exit 1
 fi
@@ -28,7 +31,25 @@ mkdir -p "$DATA"; chown -R "$USER_NAME" "$DATA" 2>/dev/null || true
 say "Installing Bambu Studio (used only as a headless slicer)"
 $SUDO mkdir -p "$PREFIX/bambu"
 if [ ! -x "$PREFIX/bambu/squashfs-root/AppRun" ]; then
-  url="${BAMBU_URL:-$BAMBU_PINNED}"
+  url="$BAMBU_URL"
+  if [ -z "$url" ]; then
+    . /etc/os-release
+    case "${UBUNTU_CODENAME:-${VERSION_CODENAME:-}}" in focal|jammy) ubu=22;; *) ubu=24;; esac
+    url="$(curl -fsSL "https://api.github.com/repos/bambulab/BambuStudio/releases?per_page=30" | UBU="$ubu" TAG="$BAMBU_TAG" python3 -c '
+import json, os, re, sys
+rels = json.load(sys.stdin)
+def pick(r):
+    for a in r.get("assets", []):
+        n = a["name"]
+        if n.endswith(".AppImage") and re.search(r"ubu(ntu)?%s" % os.environ["UBU"], n):
+            return a["browser_download_url"]
+for r in [x for x in rels if x["tag_name"] == os.environ["TAG"]] + rels:
+    u = pick(r)
+    if u:
+        print(u); break
+' || true)"
+    [ -n "$url" ] || { echo "Could not find a Bambu Studio download. Set BAMBU_URL=<direct .AppImage link> and run again."; exit 1; }
+  fi
   tmp="$(mktemp -d)"; curl -fL "$url" -o "$tmp/bs.AppImage"
   chmod +x "$tmp/bs.AppImage"
   ( cd "$PREFIX/bambu" && $SUDO "$tmp/bs.AppImage" --appimage-extract >/dev/null )
