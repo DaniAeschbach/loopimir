@@ -89,6 +89,10 @@ Environment=LOOPIMIR_DATA=$DATA
 ExecStart=$PREFIX/loopimir
 Restart=on-failure
 RestartSec=5
+NoNewPrivileges=true
+RestrictSuidSgid=true
+LockPersonality=true
+ProtectKernelModules=true
 
 [Install]
 WantedBy=multi-user.target
