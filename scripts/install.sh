@@ -115,3 +115,4 @@ say "Done. Open  http://${ip:-localhost}:8090  and add your printers (Printers d
 echo "   Logs:    journalctl -u loopimir -f"
 echo "   Data:    $DATA"
 echo "   Guide:   docs/GUIDE.md  (optional eject board: docs/BOARD.md)"
+echo "   Bambu Studio mode (optional, advanced): curl -fsSL https://raw.githubusercontent.com/$REPO/main/scripts/studio-setup.sh | bash   (docs/STUDIO-MODE.md)"

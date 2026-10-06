@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0-rc18
+- Board firmware 1.17: the board page lists what to do on first start; the web update refuses the wrong (USB) file; selbst-heal and WiFi improvements from 1.16 are final
+- Board files renamed: `…-usb-full.bin` (first install by USB) and `…-web-update.bin` (updates on the board page) so they can't be mixed up
+- Bambu Studio mode: the preset name matches your printer model by default and can be edited in the printer dialog; new `studio-setup.sh` creates the services with one command
+- Board address field recommends the IP; docs rewritten for Board, Studio mode, update and troubleshooting
+
 ## v0.2.0-rc17
 - Installer: updating while Loopimir is running no longer fails with "Text file busy"; verifies the download checksum and restarts the service
 - Adding a printer now tells you why it failed: not reachable (IP/network), access code rejected, or connected but no status (e.g. another program holds the connection); waits up to 30 s for slow printers

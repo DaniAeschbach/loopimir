@@ -14,6 +14,8 @@ curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts
 
 Open `http://<machine>:8090`. Your data lives in `~/.local/share/loopimir`. Logs: `journalctl -u loopimir -f`.
 
+**Update:** run the same command again (safe while Loopimir is running), or use the *Updates* switch in *Settings*. If GitHub serves an old cached script, wait 5 minutes.
+
 ### 2. Prepare each printer
 On the printer: **Settings → Network** → switch on **LAN Only mode** and **Developer mode**, and note the **IP address**, **serial number** and **access code**. Put an **SD card** in the printer and give it a fixed IP in your router.
 
@@ -66,6 +68,8 @@ curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts
 ```
 
 `http://<maschine>:8090` öffnen. Daten liegen in `~/.local/share/loopimir`. Log: `journalctl -u loopimir -f`.
+
+**Aktualisieren:** denselben Befehl noch einmal ausführen (geht auch, während Loopimir läuft) oder den Schalter *Updates* in den *Einstellungen* nutzen. Liefert GitHub ein altes, zwischengespeichertes Skript, 5 Minuten warten.
 
 ### 2. Jeden Drucker vorbereiten
 Am Drucker: **Einstellungen → Netzwerk** → **Nur‑LAN‑Modus** und **Entwicklermodus** einschalten, **IP‑Adresse**, **Seriennummer** und **Zugangscode** notieren. **SD‑Karte** einstecken und im Router eine feste IP vergeben.

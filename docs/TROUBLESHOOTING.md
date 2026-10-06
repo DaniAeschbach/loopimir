@@ -17,9 +17,10 @@
 | Nozzle hits the door | On P2S/P1S without the board **keep the door open** before every print. |
 | Board does nothing | **Loopimir mode** on? Printer IP / code / serial correct at `http://loopimir.local/setup`? Board reachable? |
 | Board page unreachable for minutes | Check the WiFi signal on the board page (*Settings*, last line): worse than about −70 dBm is unreliable, move the router or an extender closer. Use the board’s IP instead of `loopimir.local`, give it a fixed IP. Firmware 1.16+ reconnects or restarts by itself and writes the reason into `/log.txt`. |
-| Board does not start after flashing | You flashed the `-update.bin` by USB. Use `-full.bin` for USB (after `esptool.py erase_flash`), `-update.bin` only on the board page. |
+| Board does not start after flashing | Flash the **usb-full** file by USB (after `esptool.py erase_flash`); the **web-update** file only works on the board page. See [Board](BOARD.md). |
 | Print started outside Loopimir stayed on the plate | By design — such prints are not ejected. Remove the part, press **Plate is clear**. |
 | Camera shows nothing | Optional: only the image and the empty-plate check are missing. In LAN mode the P1S/A1 need **LAN Mode Liveview** switched on (printer settings) and only **one** stream at a time (close Studio / phone app). Or use [Studio mode](STUDIO-MODE.md). |
+| Studio mode: “printer profile” check fails / preset not found | The preset name in Loopimir must match your Bambu Studio preset **exactly** (printer dialog → *Bambu Studio preset (name)*). It must be a synced copy of **your** printer's preset, e.g. `Bambu Lab P1S 0.4 nozzle Loopimir`. See [Studio mode](STUDIO-MODE.md). |
 | Forgot the page password | Stop the service, set `"password_hash": ""` under `"web"` in `~/.local/share/loopimir/config.json`, start it. |
 | Restart / logs | `sudo systemctl restart loopimir` · `journalctl -u loopimir -n 200` |
 
@@ -42,7 +43,8 @@ Still stuck? [Open an issue](https://github.com/DaniAeschbach/loopimir/issues/ne
 | Düse fährt gegen die Tür | Bei P2S/P1S ohne Board die **Tür vor jedem Druck offen lassen**. |
 | Board tut nichts | **Loopimir‑Modus** an? IP/Code/Seriennummer unter `http://loopimir.local/setup` richtig? |
 | Board‑Seite minutenlang nicht erreichbar | WLAN‑Signal auf der Board‑Seite prüfen (*Einstellungen*, letzte Zeile): schlechter als etwa −70 dBm ist unzuverlässig, Router oder Repeater näher stellen. Die IP des Boards statt `loopimir.local` benutzen, feste IP vergeben. Firmware 1.16+ verbindet sich selbst neu oder startet neu und schreibt den Grund in `/log.txt`. |
-| Board startet nach dem Flashen nicht | Die `-update.bin` wurde per USB geflasht. Für USB `-full.bin` nehmen (vorher `esptool.py erase_flash`), `-update.bin` nur auf der Board‑Seite. |
+| Board startet nach dem Flashen nicht | Per USB nur die **usb‑full**‑Datei flashen (vorher `esptool.py erase_flash`); die **web‑update**‑Datei geht nur auf der Board‑Seite. Siehe [Board](BOARD.md). |
 | Kamera zeigt nichts | Optional: nur Bild und Platten‑Prüfung fehlen. Im LAN‑Modus brauchen P1S/A1 **LAN Mode Liveview** (Druckereinstellungen) und nur **einen** Videostrom gleichzeitig (Studio/Handy‑App schließen). Oder den [Studio‑Weg](STUDIO-MODE.md) nehmen. |
+| Studio‑Weg: Prüfung „Druckerprofil“ schlägt fehl / Profil nicht gefunden | Der Profilname in Loopimir muss **genau** dem Profil in Bambu Studio entsprechen (Drucker‑Dialog → *Bambu‑Studio‑Profil (Name)*), als synchronisierte Kopie **deines** Druckerprofils, z. B. `Bambu Lab P1S 0.4 nozzle Loopimir`. Siehe [Studio‑Weg](STUDIO-MODE.md). |
 | Druck außerhalb von Loopimir blieb liegen | Gewollt — solche Drucke werden nicht ausgeworfen. Teil entfernen, **Platte ist frei**. |
 | Passwort vergessen | Dienst stoppen, in `config.json` unter `web` `"password_hash": ""` setzen, starten. |
