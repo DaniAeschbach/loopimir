@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc9
+- Door open/closed switch on printer cards with a Stage 2 door
+
 ## v0.2.0-rc8
 - Light button on every printer card
 
