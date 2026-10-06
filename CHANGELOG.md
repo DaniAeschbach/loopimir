@@ -1,6 +1,7 @@
 # Changelog
 
 ## v0.2.0-rc16
+- Board firmware 1.15: new boards start with calibrated door values, so printer signals work without calibrating first (you only set the door position)
 - Board firmware 1.14: the board password can be removed again (enter `-` on the setup page)
 - Board firmware 1.13: the board page is available in English and German (switch button at the top, follows the browser language)
 - Board firmware 1.12: fixes the board being unreachable for about two minutes after start on the P1S (removed a blocking connection test), logs the reset reason
