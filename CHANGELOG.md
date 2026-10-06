@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc12
+- Camera in Bambu Studio mode made robust (maximizes the window, checks the Device tab, recognizes a dark picture, closes stray windows)
+
 ## v0.2.0-rc11
 - Stop print fixed in Bambu Studio mode (verified against the printer state, closes the "task cancelled" pop-up)
 
