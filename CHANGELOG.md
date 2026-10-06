@@ -1,6 +1,7 @@
 # Changelog
 
 ## v0.2.0-rc16
+- Board firmware 1.12: fixes the board being unreachable for about two minutes after start on the P1S (removed a blocking connection test), logs the reset reason
 - Security: updates are signed (Ed25519) and verified before installing
 - Security: blocks requests from other websites and DNS rebinding, upload size limits, security headers, data files readable only by the service user
 - Installer: service runs with fewer privileges
