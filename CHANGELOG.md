@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0-rc15
+- Board firmware 1.11: password protection (door, bender, settings and firmware update need the board password); Loopimir sends it automatically (Printers → Board password)
+- Login lockout after 5 wrong passwords; leftover phone-notification settings are removed
+- Installer: finds the Bambu Studio download itself, rejects non-x86 machines
+- Docs: USB port hint for flashing the board
+
 ## v0.2.0-rc14
 - Push height follows the part height (60 %, 2–10 mm)
 
