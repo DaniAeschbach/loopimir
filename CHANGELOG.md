@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc14
+- Push height follows the part height (60 %, 2–10 mm)
+
 ## v0.2.0-rc13
 - Fix: PETG sliced with the support filament profile on the P2S; correct material-to-profile mapping
 - Bambu Studio mode: Sync Infos + AMS spool selection before every print, material check on the export
