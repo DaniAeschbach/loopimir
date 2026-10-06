@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.0-rc16
+- Security: updates are signed (Ed25519) and verified before installing
+- Security: blocks requests from other websites and DNS rebinding, upload size limits, security headers, data files readable only by the service user
+- Installer: service runs with fewer privileges
+
 ## v0.2.0-rc15
 - Board firmware 1.11: password protection (door, bender, settings and firmware update need the board password); Loopimir sends it automatically (Printers → Board password)
 - Login lockout after 5 wrong passwords; leftover phone-notification settings are removed
