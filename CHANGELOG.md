@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0-rc13
+- Fix: PETG sliced with the support filament profile on the P2S; correct material-to-profile mapping
+- Bambu Studio mode: Sync Infos + AMS spool selection before every print, material check on the export
+- STEP: finer conversion with memory/time limits; fixed a threading error
+- New setting: orient parts automatically
+
 ## v0.2.0-rc12
 - Camera in Bambu Studio mode made robust (maximizes the window, checks the Device tab, recognizes a dark picture, closes stray windows)
 
