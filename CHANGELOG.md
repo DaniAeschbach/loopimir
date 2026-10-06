@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc17
+- Adding a printer now tells you why it failed: not reachable (IP/network), access code rejected, or connected but no status (e.g. another program holds the connection); waits up to 30 s for slow printers
+
 ## v0.2.0-rc16
 - Board firmware 1.15: new boards start with calibrated door values, so printer signals work without calibrating first (you only set the door position)
 - Board firmware 1.14: the board password can be removed again (enter `-` on the setup page)
