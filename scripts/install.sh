@@ -58,17 +58,26 @@ fi
 
 say "Installing the Loopimir server"
 # Prefer a released binary; fall back to an already-present one.
-bin_url="$(curl -fsSL "https://api.github.com/repos/$REPO/releases" | python3 -c '
-import json, sys
+info="$(curl -fsSL "https://api.github.com/repos/$REPO/releases" | python3 -c '
+import json, re, sys
 rels = sorted(json.load(sys.stdin), key=lambda r: r.get("published_at") or "", reverse=True)   # newest first
 for r in rels:
     for a in r.get("assets", []):
         if a["name"] == "loopimir-linux-x86_64":
-            print(a["browser_download_url"]); sys.exit()
+            m = re.search(r"SHA-256:\s*`?([0-9a-fA-F]{64})", r.get("body") or "")
+            print(a["browser_download_url"]); print(m.group(1) if m else ""); sys.exit()
 ' || true)"
+bin_url="$(printf '%s
+' "$info" | sed -n 1p)"; bin_sha="$(printf '%s
+' "$info" | sed -n 2p)"
 if [ -n "${bin_url:-}" ]; then
-  $SUDO curl -fL "$bin_url" -o "$PREFIX/loopimir"
-  $SUDO chmod +x "$PREFIX/loopimir"
+  # download next to the old file and swap it in: works while Loopimir is running (no "Text file busy")
+  $SUDO curl -fL "$bin_url" -o "$PREFIX/loopimir.new"
+  if [ -n "${bin_sha:-}" ] && [ "$($SUDO sha256sum "$PREFIX/loopimir.new" | cut -d' ' -f1)" != "$(printf '%s' "$bin_sha" | tr 'A-F' 'a-f')" ]; then
+    $SUDO rm -f "$PREFIX/loopimir.new"; echo "Checksum of the download does not match - aborting."; exit 1
+  fi
+  $SUDO chmod +x "$PREFIX/loopimir.new"
+  $SUDO mv -f "$PREFIX/loopimir.new" "$PREFIX/loopimir"
 elif [ ! -x "$PREFIX/loopimir" ]; then
   echo "No released binary found and none installed. Download loopimir-linux-x86_64 from the Releases page to $PREFIX/loopimir."; exit 1
 fi
@@ -98,7 +107,8 @@ ProtectKernelModules=true
 WantedBy=multi-user.target
 UNIT_EOF
 $SUDO systemctl daemon-reload
-$SUDO systemctl enable --now loopimir.service
+$SUDO systemctl enable loopimir.service
+$SUDO systemctl restart loopimir.service      # also picks up a freshly installed binary
 
 ip="$(hostname -I 2>/dev/null | awk '{print $1}')"
 say "Done. Open  http://${ip:-localhost}:8090  and add your printers (Printers dialog)."

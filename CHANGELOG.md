@@ -1,6 +1,7 @@
 # Changelog
 
 ## v0.2.0-rc17
+- Installer: updating while Loopimir is running no longer fails with "Text file busy"; verifies the download checksum and restarts the service
 - Adding a printer now tells you why it failed: not reachable (IP/network), access code rejected, or connected but no status (e.g. another program holds the connection); waits up to 30 s for slow printers
 
 ## v0.2.0-rc16
