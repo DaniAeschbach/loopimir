@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0-rc19
+- Push height is now part height − 10 mm (minimum 3 mm) instead of at most 10 mm: tall parts no longer make the bed rise into the toolhead, gantry or ceiling on P2S/P1S
+
 ## v0.2.0-rc18
 - Board firmware 1.17: the board page lists what to do on first start; the web update refuses the wrong (USB) file; selbst-heal and WiFi improvements from 1.16 are final
 - Board files renamed: `…-usb-full.bin` (first install by USB) and `…-web-update.bin` (updates on the board page) so they can't be mixed up
