@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.0-rc21
+- Strict check of the push heights (slow pass and fast low pass) now also for the P2S
+- Bambu Studio mode: opening the project retries up to 3 times (Bambu Studio is sometimes not ready right after its start)
+
 ## v0.2.0-rc20
 - Pushing now runs in two passes: slow at part height − 10 mm, then a fast pass at 3 mm (A1: 2 mm) for parts up to 30 mm high; taller parts keep the first height so they cannot be lifted into the toolhead rail
 - Export wait in Bambu Studio mode raised to 15 minutes (large parts slice for several minutes on small machines)
