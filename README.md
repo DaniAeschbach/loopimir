@@ -29,7 +29,8 @@ curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts
 ```
 
 Open `http://<your-machine>:8090`, add your printers, drop a model, switch on **Start jobs automatically**. That's it.
-Needs an x86‑64 Linux machine (Debian / Ubuntu / Mint, ~4 GB RAM) — a Raspberry Pi does not work.
+Needs an always-on x86‑64 Linux machine (Debian / Ubuntu / Mint, ~4 GB RAM) — a Raspberry Pi does not work.
+To update, run the same command again (or let Loopimir update itself: *Settings → Updates*).
 
 ## Printers
 
@@ -43,7 +44,7 @@ Needs an x86‑64 Linux machine (Debian / Ubuntu / Mint, ~4 GB RAM) — a Raspbe
 
 ## Docs
 
-[**Guide**](docs/GUIDE.md) · [Printers & hardware](docs/PRINTERS.md) · [Board](docs/BOARD.md) · [Cooling](docs/COOLING.md) · [Bambu Studio mode](docs/STUDIO-MODE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
+[**Guide**](docs/GUIDE.md) · [Printers & hardware](docs/PRINTERS.md) · [Board](docs/BOARD.md) · [Cooling](docs/COOLING.md) · [Bambu Studio mode](docs/STUDIO-MODE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md)
 
 Found a bug or tested a printer? [Open an issue](https://github.com/DaniAeschbach/loopimir/issues/new/choose) — test reports are very welcome.
 

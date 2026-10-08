@@ -8,6 +8,10 @@
 ### Deine Bambu‑Lab‑Druckfarm läuft von allein.
 Ein Dashboard, beliebig viele Drucker, kein Abo.
 
+[![Release](https://img.shields.io/github/v/release/DaniAeschbach/loopimir?include_prereleases&color=2f8a55)](https://github.com/DaniAeschbach/loopimir/releases)
+[![Kostenlos](https://img.shields.io/badge/Preis-kostenlos-2f8a55.svg)](LICENSE)
+[![Drucker](https://img.shields.io/badge/Drucker-P2S%20%C2%B7%20A1%20%C2%B7%20P1S-F07800.svg)](docs/PRINTERS.md)
+
 [English](README.md)
 
 <img src="images/dashboard.jpg" width="820" alt="Loopimir Dashboard">
@@ -25,7 +29,8 @@ curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts
 ```
 
 `http://<deine-maschine>:8090` öffnen, Drucker hinzufügen, ein Modell hineinziehen, **Automatisch starten** einschalten. Fertig.
-Braucht einen x86‑64‑Linux‑Rechner (Debian / Ubuntu / Mint, ~4 GB RAM) — ein Raspberry Pi geht nicht.
+Braucht einen dauerhaft laufenden x86‑64‑Linux‑Rechner (Debian / Ubuntu / Mint, ~4 GB RAM) — ein Raspberry Pi geht nicht.
+Zum Aktualisieren denselben Befehl noch einmal ausführen (oder Loopimir aktualisiert sich selbst: *Einstellungen → Updates*).
 
 ## Drucker
 
@@ -39,7 +44,9 @@ Braucht einen x86‑64‑Linux‑Rechner (Debian / Ubuntu / Mint, ~4 GB RAM) —
 
 ## Anleitungen
 
-[**Anleitung**](docs/GUIDE.md) · [Drucker & Hardware](docs/PRINTERS.md) · [Board](docs/BOARD.md) · [Kühlprofile](docs/COOLING.md) · [Bambu‑Studio‑Weg](docs/STUDIO-MODE.md) · [Fehlersuche](docs/TROUBLESHOOTING.md)
+[**Anleitung**](docs/GUIDE.md#deutsch) · [Drucker & Hardware](docs/PRINTERS.md#deutsch) · [Board](docs/BOARD.md#deutsch) · [Kühlprofile](docs/COOLING.md#deutsch) · [Bambu‑Studio‑Weg](docs/STUDIO-MODE.md#deutsch) · [Fehlersuche](docs/TROUBLESHOOTING.md#deutsch) · [Änderungen](CHANGELOG.md) · [Sicherheit](SECURITY.md)
+
+Fehler gefunden oder einen Drucker getestet? [Issue eröffnen](https://github.com/DaniAeschbach/loopimir/issues/new/choose) — Testberichte sind sehr willkommen (gern auf Deutsch).
 
 ## Lizenz
 

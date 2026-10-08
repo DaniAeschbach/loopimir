@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+- Installer: finds the user's real home folder (not only `/home/<user>`), creates the data folder as that user with permission `700`, warns when the release has no checksum, keeps the installed version when GitHub is unreachable, cleans up after an interrupted Bambu Studio download
+- Uninstaller: also removes the Bambu Studio mode services from `studio-setup.sh`; can be run with `curl … | bash`
+- Docs: every page complete in English and German, printer dialog screenshot in the Guide, links to the German sections
+
 ## v0.2.0-rc21
 - Strict check of the push heights (slow pass and fast low pass) now also for the P2S
 - Bambu Studio mode: opening the project retries up to 3 times (Bambu Studio is sometimes not ready right after its start)
@@ -12,7 +17,7 @@
 - Push height is now part height − 10 mm (minimum 3 mm) instead of at most 10 mm: tall parts no longer make the bed rise into the toolhead, gantry or ceiling on P2S/P1S
 
 ## v0.2.0-rc18
-- Board firmware 1.17: the board page lists what to do on first start; the web update refuses the wrong (USB) file; selbst-heal and WiFi improvements from 1.16 are final
+- Board firmware 1.17: the board page lists what to do on first start; the web update refuses the wrong (USB) file; self-healing and WiFi improvements from 1.16 are final
 - Board files renamed: `…-usb-full.bin` (first install by USB) and `…-web-update.bin` (updates on the board page) so they can't be mixed up
 - Bambu Studio mode: the preset name matches your printer model by default and can be edited in the printer dialog; new `studio-setup.sh` creates the services with one command
 - Board address field recommends the IP; docs rewritten for Board, Studio mode, update and troubleshooting

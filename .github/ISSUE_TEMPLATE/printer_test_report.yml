@@ -5,12 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Reports like this move features from 🧪 beta to ✅ proven (see [STATUS.md](https://github.com/DaniAeschbach/loopimir/blob/main/docs/PRINTERS.md)). Success **and** failure are both useful.
+        Reports like this move features from 🧪 beta to ✅ proven (see [Printers & hardware](https://github.com/DaniAeschbach/loopimir/blob/main/docs/PRINTERS.md)). Success **and** failure are both useful. English or German is fine.
   - type: input
     id: version
     attributes:
       label: Loopimir version
-      placeholder: v0.2.0-rc2
+      placeholder: v0.2.0-rc21
     validations: {required: true}
   - type: dropdown
     id: model

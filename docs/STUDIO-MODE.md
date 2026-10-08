@@ -1,10 +1,14 @@
 # Bambu Studio mode (advanced) / Bambu‑Studio‑Weg
 
 > **Beta · one printer.** Use LAN mode ([Guide](GUIDE.md)) unless you want the printer to stay in the Bambu cloud. Tuned for a **German** Bambu Studio on a **1600×1000** virtual screen. Tested on the P2S; P1S and A1 are beta.
+>
+> **Beta · ein Drucker.** Nimm den LAN‑Modus ([Anleitung](GUIDE.md#deutsch)), außer der Drucker soll in der Bambu‑Cloud bleiben. Abgestimmt auf ein **deutsches** Bambu Studio auf einem virtuellen Bildschirm mit **1600×1000**. Am P2S getestet; P1S und A1 sind Beta.
+
+[English](#english) · [Deutsch](#deutsch)
 
 ## English
 
-Bambu printers only accept start commands **signed by Bambu's apps**. In Studio mode Loopimir operates **your signed‑in Bambu Studio** on a virtual screen — Bambu Studio signs and sends the job. The printer stays in the cloud (Handy app and MakerWorld keep working). Loopimir still slices, checks the file strictly, and prepares the next job while one is printing. The camera image also comes from Bambu Studio in this mode.
+Bambu printers only accept start commands **signed by Bambu's apps**. In Studio mode Loopimir operates **your signed‑in Bambu Studio** on a virtual screen — Bambu Studio signs and sends the job. The printer stays in the cloud (Bambu Handy app and MakerWorld keep working). Loopimir still slices, checks the file strictly, and prepares the next job while one is printing. The camera image also comes from Bambu Studio in this mode.
 
 ### Setup (once)
 1. **Install** as usual: `install.sh` adds Bambu Studio and the tools.
@@ -23,10 +27,13 @@ Bambu printers only accept start commands **signed by Bambu's apps**. In Studio 
 - The name is free, it just has to match in both places. It is best to end it with *Loopimir*: Loopimir finds the preset by its last word.
 - Loopimir overwrites that preset with each job's settings, so don't use your everyday preset.
 - Close the live view in the Bambu apps; only one video stream works at a time.
+- To look at Bambu Studio later (e.g. to sign in again), open the same SSH tunnel and VNC viewer. Logs of the Bambu Studio service: `journalctl --user -u loopimir-bambu -f`.
+
+---
 
 ## Deutsch
 
-Bambu‑Drucker nehmen nur von Bambus Apps **signierte** Startbefehle an. Im Studio‑Weg bedient Loopimir **dein angemeldetes Bambu Studio** auf einem virtuellen Bildschirm; Bambu Studio signiert und sendet. Der Drucker bleibt in der Cloud. Loopimir slict und prüft weiterhin streng und bereitet den nächsten Auftrag schon beim Drucken vor. Auch das Kamerabild kommt in diesem Modus aus Bambu Studio.
+Bambu‑Drucker nehmen nur von Bambus Apps **signierte** Startbefehle an. Im Studio‑Weg bedient Loopimir **dein angemeldetes Bambu Studio** auf einem virtuellen Bildschirm; Bambu Studio signiert und sendet. Der Drucker bleibt in der Cloud (Bambu‑Handy‑App und MakerWorld funktionieren weiter). Loopimir slict und prüft weiterhin streng und bereitet den nächsten Auftrag schon beim Drucken vor. Auch das Kamerabild kommt in diesem Modus aus Bambu Studio.
 
 ### Einrichtung (einmalig)
 1. **Installieren** wie gewohnt: `install.sh` legt Bambu Studio und die Werkzeuge an.
@@ -35,10 +42,14 @@ Bambu‑Drucker nehmen nur von Bambus Apps **signierte** Startbefehle an. Im Stu
    curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts/studio-setup.sh | bash
    ```
 3. **Einmal anmelden** (das kannst nur du): Tunnel öffnen `ssh -L 5900:localhost:5900 <benutzer>@<server>`, VNC‑Viewer mit `localhost:5900` verbinden, in Bambu Studio **anmelden**, Drucker verbinden, **Sprache Deutsch** einstellen.
-4. **Profil anlegen:** In Bambu Studio ein **Benutzerprofil als Kopie deines eigenen Druckerprofils** speichern und mit der Cloud synchronisieren lassen (nicht synchronisierte Profile löscht Studio). Name nach deinem Modell, z. B. `Bambu Lab P1S 0.4 nozzle Loopimir` (P2S / A1 entsprechend).
+4. **Profil anlegen:** In Bambu Studio ein **Benutzerprofil als Kopie deines eigenen Druckerprofils** speichern und mit der Cloud synchronisieren lassen (nicht synchronisierte Profile löscht Studio). Name nach deinem Modell, z. B.:
+   - P2S: `Bambu Lab P2S 0.4 nozzle Loopimir`
+   - P1S: `Bambu Lab P1S 0.4 nozzle Loopimir`
+   - A1: `Bambu Lab A1 0.4 nozzle Loopimir`
 5. **In Loopimir:** Drucker bearbeiten → **Sendeweg: Bambu Studio** → im Feld **Bambu‑Studio‑Profil (Name)** steht der Name passend zu deinem Modell. Hast du dein Profil anders genannt, genau diesen Namen eintragen (Groß‑/Kleinschreibung gleich). IP und Zugangscode sind weiter nötig. Nur **ein** Drucker kann diesen Weg nutzen.
 
 ### Gut zu wissen
 - Der Name ist frei, er muss nur an beiden Stellen gleich sein. Am besten endet er mit *Loopimir*: Loopimir findet das Profil über das letzte Wort.
 - Loopimir überschreibt dieses Profil bei jedem Auftrag; nimm nicht dein Alltagsprofil.
 - Live‑Ansicht in den Bambu‑Apps schließen; es geht nur ein Videostrom gleichzeitig.
+- Um Bambu Studio später anzusehen (z. B. für eine neue Anmeldung), denselben SSH‑Tunnel und VNC‑Viewer öffnen. Log des Bambu‑Studio‑Dienstes: `journalctl --user -u loopimir-bambu -f`.

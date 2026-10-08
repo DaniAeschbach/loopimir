@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Loopimir: set up the services for "Bambu Studio" send mode (virtual screen, window manager, Bambu Studio, VNC).
-# Run as your normal user (not root), after install.sh:   bash studio-setup.sh
-# Safe to run again. Remove later with:  systemctl --user disable --now loopimir-bambu loopimir-vnc loopimir-wm loopimir-display
+# Run as your normal user (not root), after install.sh:
+#   curl -fsSL https://raw.githubusercontent.com/DaniAeschbach/loopimir/main/scripts/studio-setup.sh | bash
+# Safe to run again. uninstall.sh removes these services too.
 set -euo pipefail
 
 NAME="${NAME:-loopimir}"                                     # service name prefix (the Loopimir default expects "loopimir-bambu")
@@ -10,8 +11,10 @@ APPRUN="${APPRUN:-/opt/loopimir/bambu/squashfs-root/AppRun}"
 VNC_PORT="${VNC_PORT:-5900}"
 
 say(){ printf '\033[1;32m==>\033[0m %s\n' "$*"; }
-[ "$(id -u)" != 0 ] || { echo "Please run this as your normal user, not as root (it uses sudo only where needed)."; exit 1; }
-[ -x "$APPRUN" ] || { echo "Bambu Studio not found at $APPRUN. Run install.sh first."; exit 1; }
+die(){ printf '\033[1;31m==>\033[0m %s\n' "$*" >&2; exit 1; }
+[ "$(id -u)" != 0 ] || die "Please run this as your normal user, not as root (it uses sudo only where needed)."
+[ -x "$APPRUN" ] || die "Bambu Studio not found at $APPRUN. Run install.sh first."
+ME="$(id -un)"
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 
 say "Installing openbox and x11vnc"
@@ -44,7 +47,7 @@ EOF
 cat > "$UD/$NAME-bambu.service" <<EOF
 [Unit]
 Description=Bambu Studio on the virtual screen (signed in, sends prints through the cloud)
-After=$NAME-wm.service
+After=$NAME-display.service $NAME-wm.service
 Requires=$NAME-display.service
 [Service]
 Environment=DISPLAY=$DISP
@@ -73,7 +76,7 @@ WantedBy=default.target
 EOF
 
 say "Starting them (and keeping them running after logout)"
-sudo loginctl enable-linger "$USER"
+sudo loginctl enable-linger "$ME"
 systemctl --user daemon-reload
 systemctl --user enable --now "$NAME-display.service" "$NAME-wm.service" "$NAME-vnc.service" "$NAME-bambu.service"
 
@@ -82,10 +85,10 @@ cat <<EOF
 
 Done. One thing is left that only you can do: sign in to Bambu Studio on the virtual screen.
 
- 1. On your PC open a tunnel:   ssh -L $VNC_PORT:localhost:$VNC_PORT $USER@${host:-<server-ip>}
+ 1. On your PC open a tunnel:   ssh -L $VNC_PORT:localhost:$VNC_PORT $ME@${host:-<server-ip>}
  2. Open a VNC viewer (e.g. TigerVNC, RealVNC) and connect to  localhost:$VNC_PORT
  3. In Bambu Studio: sign in, bind your printer and set the language to German.
  4. Save a user preset (copy of your own printer preset), e.g. "Bambu Lab P1S 0.4 nozzle Loopimir", and let it sync to the cloud.
- 5. In Loopimir: edit the printer > Send mode: Bambu Studio > enter the same preset name.
- More: docs/STUDIO-MODE.md
+ 5. In Loopimir: edit the printer > Send mode: Bambu Studio > check the preset name matches.
+ More: https://github.com/DaniAeschbach/loopimir/blob/main/docs/STUDIO-MODE.md
 EOF
