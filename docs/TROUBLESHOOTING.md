@@ -11,7 +11,7 @@
 | “No file access (FTPS) – is an SD card inserted?” | Put an **SD card** in the printer. |
 | Printer shows offline later | The IP changed — give it a **fixed IP**. |
 | “mqtt message verify failed” | Developer mode is off. Switch it on (or use [Studio mode](STUDIO-MODE.md)). |
-| Job: “Preparing failed” | Read `~/.local/share/loopimir/jobs/<job>/work/slice.log`. Usually a broken or too big STL, or a STEP file (convert to STL). |
+| Job: “Preparing failed” | Read `~/.local/share/loopimir/jobs/<job>/work/slice.log`. Usually a broken or too big model. A STEP file that fails to convert (time or memory limit): export it as STL and upload that. |
 | Job: a check failed | The file does not match your hardware choice, so it is **never sent**. *More → Checks* shows which. |
 | Job waits | The reason is under the job. Common: **Plate is clear** needed, filament not loaded, printer busy, pinned (📌) to another printer. |
 | Part does not come off | Cool further: lower the release temperature in *Settings → Cooling profiles*. Use a textured PEI plate. |
@@ -39,7 +39,7 @@ Still stuck? [Open an issue](https://github.com/DaniAeschbach/loopimir/issues/ne
 | „Kein Dateizugriff (FTPS) – SD‑Karte?“ | **SD‑Karte** in den Drucker stecken. |
 | Drucker später offline | IP hat sich geändert — **feste IP** vergeben. |
 | „mqtt message verify failed“ | Entwicklermodus ist aus — einschalten (oder [Studio‑Weg](STUDIO-MODE.md#deutsch)). |
-| Auftrag: „Vorbereiten fehlgeschlagen“ | `~/.local/share/loopimir/jobs/<Auftrag>/work/slice.log` lesen. Meist ein defektes oder zu großes STL oder eine STEP‑Datei (in STL umwandeln). |
+| Auftrag: „Vorbereiten fehlgeschlagen“ | `~/.local/share/loopimir/jobs/<Auftrag>/work/slice.log` lesen. Meist ein defektes oder zu großes Modell. Scheitert die Umwandlung einer STEP‑Datei (Zeit‑ oder Speichergrenze): als STL exportieren und diese hochladen. |
 | Auftrag: Prüfung nicht bestanden | Die Datei passt nicht zu deiner Hardware‑Wahl und wird **nie gesendet**. *Mehr → Prüfungen* zeigt welche. |
 | Auftrag wartet | Der Grund steht darunter. Häufig: **Platte ist frei** nötig, Filament nicht geladen, Drucker beschäftigt, 📌 einem anderen Drucker zugewiesen. |
 | Teil löst sich nicht | Weiter abkühlen: Lösetemperatur in *Einstellungen → Kühlprofile* senken. Textured‑PEI‑Platte verwenden. |
