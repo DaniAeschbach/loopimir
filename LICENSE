@@ -2,7 +2,7 @@ Loopimir — License to Use (Freeware)
 Copyright (c) 2026 Dani Aeschbach. All rights reserved.
 
 This licence covers the Loopimir server program and the Loopimir board firmware
-(the files attached to the releases and in the firmware folder).
+(the files attached to the releases).
 
 You may use and share them free of charge, for personal or commercial print-farm
 operation, and give copies to anyone unchanged.
@@ -15,5 +15,3 @@ NOT LIABLE FOR ANY DAMAGE, LOST PRINTS, OR DAMAGE TO PRINTERS, BOARDS OR PROPERT
 ARISING FROM ITS USE. You operate your printers and eject station at your own risk.
 
 Loopimir is an independent project and is not affiliated with Bambu Lab.
-Earlier firmware versions (up to v0.2.0-rc3) were published under GPL-3.0-or-later;
-those copies stay under that licence for those who received them.

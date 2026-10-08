@@ -1,10 +1,3 @@
-# firmware
-firmware/.pio/
-firmware/src/config.h
-# build
-.buildenv/
-*.pyc
-__pycache__/
+# release binary and local data
 loopimir-linux-x86_64
-# local data
 *.local
