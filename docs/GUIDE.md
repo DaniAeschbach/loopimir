@@ -26,7 +26,7 @@ On the printer: **Settings → Network** → switch on **LAN Only mode** and **D
 
 ### 4. First test print
 1. Leave **Start jobs automatically** off.
-2. Drag a small **STL** (a 20 mm cube) into *New order*, pick loaded filament, *Upload*.
+2. Drag a small **STL** or **STEP** (a 20 mm cube) into *New order*, pick loaded filament, *Upload*.
 3. After it is sliced and checked (a minute or two), press **Start now** — and stay next to the printer.
 4. When the part is ejected and the plate is empty, press **Plate is clear**.
 
@@ -48,7 +48,7 @@ ITEM SPECIFICATIONS
 
 UPLOADED FILES
 ```
-Every piece becomes its own job. **STL only** (convert STEP first). Job waits? The reason is shown under the job; **Plate is clear** is the usual one.
+Every piece becomes its own job. **STL or STEP** (STEP is converted to STL automatically; if a very large STEP file hits the time or memory limit, export it as STL yourself). Job waits? The reason is shown under the job; **Plate is clear** is the usual one.
 
 ### Updates, backup, uninstall
 - **Updates** install themselves (*Settings → Updates*), or run the install command again (safe while Loopimir is running). If GitHub serves an old cached script, wait 5 minutes. Installed before v0.2.0? Re-run the installer once.
@@ -85,7 +85,7 @@ Am Drucker: **Einstellungen → Netzwerk** → **Nur‑LAN‑Modus** und **Entwi
 
 ### 4. Erster Testdruck
 1. **Automatisch starten** aus lassen.
-2. Ein kleines **STL** (20‑mm‑Würfel) in *Neue Bestellung* ziehen, geladenes Filament wählen, *Hochladen*.
+2. Ein kleines **STL** oder **STEP** (20‑mm‑Würfel) in *Neue Bestellung* ziehen, geladenes Filament wählen, *Hochladen*.
 3. Nach dem Slicen und Prüfen (ein bis zwei Minuten) **Jetzt starten** — und beim Drucker bleiben.
 4. Teil ausgeworfen, Platte leer? **Platte ist frei**.
 
@@ -107,7 +107,7 @@ ITEM SPECIFICATIONS
 
 UPLOADED FILES
 ```
-Das Format genau wie im Beispiel übernehmen. Jedes Stück wird ein eigener Auftrag. **Nur STL** (STEP vorher umwandeln). Wartet ein Auftrag? Der Grund steht darunter; meist ist es **Platte ist frei**.
+Das Format genau wie im Beispiel übernehmen. Jedes Stück wird ein eigener Auftrag. **STL oder STEP** (STEP wird automatisch in STL umgewandelt; stößt eine sehr große STEP‑Datei an die Zeit‑ oder Speichergrenze, sie selbst als STL exportieren). Wartet ein Auftrag? Der Grund steht darunter; meist ist es **Platte ist frei**.
 
 ### Updates, Backup, Entfernen
 - **Updates** installieren sich selbst (*Einstellungen → Updates*), oder den Installationsbefehl noch einmal ausführen (geht auch, während Loopimir läuft). Liefert GitHub ein altes, zwischengespeichertes Skript, 5 Minuten warten. Vor v0.2.0 installiert? Installer einmal erneut ausführen.

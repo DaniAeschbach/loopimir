@@ -3,7 +3,7 @@
 ## Unreleased
 - Installer: finds the user's real home folder (not only `/home/<user>`), creates the data folder as that user with permission `700`, warns when the release has no checksum, keeps the installed version when GitHub is unreachable, cleans up after an interrupted Bambu Studio download
 - Uninstaller: also removes the Bambu Studio mode services from `studio-setup.sh`; can be run with `curl … | bash`
-- Docs: every page complete in English and German, printer dialog screenshot in the Guide, links to the German sections
+- Docs: STEP upload documented (converted automatically); every page complete in English and German, printer dialog screenshot in the Guide, links to the German sections
 
 ## v0.2.0-rc21
 - Strict check of the push heights (slow pass and fast low pass) now also for the P2S
