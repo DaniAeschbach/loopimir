@@ -51,7 +51,7 @@ UPLOADED FILES
 Every piece becomes its own job. **STL or STEP** (STEP is converted to STL automatically; if a very large STEP file hits the time or memory limit, export it as STL yourself). Job waits? The reason is shown under the job; **Plate is clear** is the usual one.
 
 ### Updates, backup, uninstall
-- **Updates** install themselves (*Settings → Updates*), or run the install command again (safe while Loopimir is running). If GitHub serves an old cached script, wait 5 minutes. Installed before v0.2.0? Re-run the installer once.
+- **Updates** install themselves (*Settings → Updates*), or run the install command again (safe while Loopimir is running). If GitHub serves an old cached script, wait 5 minutes.
 - **Backup:** copy `~/.local/share/loopimir`.
 - **Uninstall:**
   ```bash
@@ -110,7 +110,7 @@ UPLOADED FILES
 Das Format genau wie im Beispiel übernehmen. Jedes Stück wird ein eigener Auftrag. **STL oder STEP** (STEP wird automatisch in STL umgewandelt; stößt eine sehr große STEP‑Datei an die Zeit‑ oder Speichergrenze, sie selbst als STL exportieren). Wartet ein Auftrag? Der Grund steht darunter; meist ist es **Platte ist frei**.
 
 ### Updates, Backup, Entfernen
-- **Updates** installieren sich selbst (*Einstellungen → Updates*), oder den Installationsbefehl noch einmal ausführen (geht auch, während Loopimir läuft). Liefert GitHub ein altes, zwischengespeichertes Skript, 5 Minuten warten. Vor v0.2.0 installiert? Installer einmal erneut ausführen.
+- **Updates** installieren sich selbst (*Einstellungen → Updates*), oder den Installationsbefehl noch einmal ausführen (geht auch, während Loopimir läuft). Liefert GitHub ein altes, zwischengespeichertes Skript, 5 Minuten warten.
 - **Backup:** `~/.local/share/loopimir` kopieren.
 - **Entfernen:**
   ```bash
