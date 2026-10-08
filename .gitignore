@@ -1,3 +1,8 @@
 # release binary and local data
 loopimir-linux-x86_64
 *.local
+# never commit passwords or access codes
+config.h
+config.json
+.env
+*.secret
