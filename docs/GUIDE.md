@@ -1,6 +1,6 @@
 # Guide / Anleitung
 
-[English](#english) · [Deutsch](#deutsch)
+[← Loopimir](../README.md) · [English](#english) · [Deutsch](#deutsch)
 
 <a name="english"></a>
 ## English

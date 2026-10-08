@@ -1,6 +1,6 @@
 # Troubleshooting / Fehlersuche
 
-[English](#english) · [Deutsch](#deutsch)
+[← Loopimir](../README.md) · [English](#english) · [Deutsch](#deutsch)
 
 ## English
 

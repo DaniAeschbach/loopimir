@@ -1,5 +1,7 @@
 # Bambu Studio mode (advanced) / Bambu‑Studio‑Weg
 
+[← Loopimir](../README.md) · [English](#english) · [Deutsch](#deutsch)
+
 > **Beta · one printer.** Use LAN mode ([Guide](GUIDE.md)) unless you want the printer to stay in the Bambu cloud. Tuned for a **German** Bambu Studio on a **1600×1000** virtual screen. Tested on the P2S; P1S and A1 are beta.
 >
 > **Beta · ein Drucker.** Nimm den LAN‑Modus ([Anleitung](GUIDE.md#deutsch)), außer der Drucker soll in der Bambu‑Cloud bleiben. Abgestimmt auf ein **deutsches** Bambu Studio auf einem virtuellen Bildschirm mit **1600×1000**. Am P2S getestet; P1S und A1 sind Beta.
