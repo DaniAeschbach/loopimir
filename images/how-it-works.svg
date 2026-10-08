@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 320" width="1020" height="320" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="How Loopimir works: upload, slice, print, cool, eject, then repeat">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#132219"/>
+      <stop offset="1" stop-color="#0e1a13"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3fa968"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f07800"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="1018" height="318" rx="20" fill="url(#card)" stroke="#23382b" stroke-width="2"/>
+
+  <!-- connectors between the steps -->
+  <g stroke="#3fa968" stroke-width="3" fill="none" marker-end="url(#arrow)" opacity="0.9">
+    <line x1="156" y1="128" x2="264" y2="128"/>
+    <line x1="356" y1="128" x2="464" y2="128"/>
+    <line x1="556" y1="128" x2="664" y2="128"/>
+    <line x1="756" y1="128" x2="864" y2="128"/>
+  </g>
+
+  <!-- loop-back arrow: eject -> upload (the "loop") -->
+  <path d="M910 182 C 910 268, 110 268, 110 182" fill="none" stroke="#f07800" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" marker-end="url(#arrowO)"/>
+  <text x="510" y="292" text-anchor="middle" fill="#f07800" font-size="17" font-weight="600" letter-spacing="0.3">then the next part — automatically</text>
+
+  <!-- step template: circle, number, icon, label, sublabel -->
+  <!-- 1 Upload -->
+  <g>
+    <circle cx="110" cy="128" r="46" fill="#17271d" stroke="#3fa968" stroke-width="2.5"/>
+    <g stroke="#e8f0ea" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M110 112 l0 28 M98 123 l12 -12 l12 12"/>
+      <path d="M92 146 l36 0" stroke="#3fa968"/>
+    </g>
+    <circle cx="146" cy="92" r="13" fill="#3fa968"/><text x="146" y="97" text-anchor="middle" fill="#0e1a13" font-size="15" font-weight="700">1</text>
+    <text x="110" y="208" text-anchor="middle" fill="#e8f0ea" font-size="19" font-weight="700">Upload</text>
+    <text x="110" y="230" text-anchor="middle" fill="#8aa596" font-size="14">models or an order</text>
+  </g>
+  <!-- 2 Slice -->
+  <g>
+    <circle cx="310" cy="128" r="46" fill="#17271d" stroke="#3fa968" stroke-width="2.5"/>
+    <g stroke="#e8f0ea" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M292 120 l18 -9 l18 9 l-18 9 z"/>
+      <path d="M292 132 l18 9 l18 -9" stroke="#3fa968"/>
+      <path d="M292 144 l18 9 l18 -9"/>
+    </g>
+    <circle cx="346" cy="92" r="13" fill="#3fa968"/><text x="346" y="97" text-anchor="middle" fill="#0e1a13" font-size="15" font-weight="700">2</text>
+    <text x="310" y="208" text-anchor="middle" fill="#e8f0ea" font-size="19" font-weight="700">Slice</text>
+    <text x="310" y="230" text-anchor="middle" fill="#8aa596" font-size="14">per printer, checked</text>
+  </g>
+  <!-- 3 Print -->
+  <g>
+    <circle cx="510" cy="128" r="46" fill="#17271d" stroke="#3fa968" stroke-width="2.5"/>
+    <g stroke="#e8f0ea" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="492" y="110" width="36" height="24" rx="3"/>
+      <path d="M500 134 l0 10 l20 0 l0 -10" stroke="#3fa968"/>
+      <path d="M510 144 l0 6" stroke="#f07800"/>
+    </g>
+    <circle cx="546" cy="92" r="13" fill="#3fa968"/><text x="546" y="97" text-anchor="middle" fill="#0e1a13" font-size="15" font-weight="700">3</text>
+    <text x="510" y="208" text-anchor="middle" fill="#e8f0ea" font-size="19" font-weight="700">Print</text>
+    <text x="510" y="230" text-anchor="middle" fill="#8aa596" font-size="14">LAN or Studio mode</text>
+  </g>
+  <!-- 4 Cool -->
+  <g>
+    <circle cx="710" cy="128" r="46" fill="#17271d" stroke="#3fa968" stroke-width="2.5"/>
+    <g stroke="#e8f0ea" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M710 108 l0 40 M693 118 l34 20 M727 118 l-34 20"/>
+      <path d="M710 108 l-6 6 M710 108 l6 6 M693 118 l0 -8 M693 118 l8 2 M727 118 l0 -8 M727 118 l-8 2" stroke="#3fa968"/>
+    </g>
+    <circle cx="746" cy="92" r="13" fill="#3fa968"/><text x="746" y="97" text-anchor="middle" fill="#0e1a13" font-size="15" font-weight="700">4</text>
+    <text x="710" y="208" text-anchor="middle" fill="#e8f0ea" font-size="19" font-weight="700">Cool</text>
+    <text x="710" y="230" text-anchor="middle" fill="#8aa596" font-size="14">right for the material</text>
+  </g>
+  <!-- 5 Eject -->
+  <g>
+    <circle cx="910" cy="128" r="46" fill="#17271d" stroke="#f07800" stroke-width="2.5"/>
+    <g stroke="#e8f0ea" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M894 128 l26 0"/>
+      <path d="M910 116 l12 12 l-12 12" stroke="#f07800"/>
+      <path d="M894 142 l0 6 l32 0 l0 -6" stroke="#3fa968"/>
+    </g>
+    <circle cx="946" cy="92" r="13" fill="#f07800"/><text x="946" y="97" text-anchor="middle" fill="#0e1a13" font-size="15" font-weight="700">5</text>
+    <text x="910" y="208" text-anchor="middle" fill="#e8f0ea" font-size="19" font-weight="700">Eject</text>
+    <text x="910" y="230" text-anchor="middle" fill="#8aa596" font-size="14">bend &amp; push off</text>
+  </g>
+</svg>

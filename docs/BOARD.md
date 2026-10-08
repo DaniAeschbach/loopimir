@@ -1,5 +1,7 @@
 # The board (FarmLoop Stage 2) / Das Board
 
+[← Loopimir](../README.md) · [English](#english) · [Deutsch](#deutsch)
+
 Optional. Loopimir works without it. The board (ESP32‑S3, FarmBoard V2.2) opens/closes the printer door and drives the bender (P2S, P1S), or the bender and fan (A1, no door). **One board per printer.** The firmware is free but closed source.
 
 ## English
