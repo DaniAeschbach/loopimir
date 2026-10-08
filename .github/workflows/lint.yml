@@ -1,0 +1,15 @@
+name: Lint
+on:
+  push:
+    paths: ["scripts/**", ".github/workflows/lint.yml"]
+  pull_request:
+    paths: ["scripts/**", ".github/workflows/lint.yml"]
+permissions:
+  contents: read
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: shellcheck
+        run: shellcheck scripts/*.sh

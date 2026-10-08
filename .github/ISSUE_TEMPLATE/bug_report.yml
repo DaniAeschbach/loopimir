@@ -7,12 +7,13 @@ body:
       value: |
         Thanks! Please check [Troubleshooting](https://github.com/DaniAeschbach/loopimir/blob/main/docs/TROUBLESHOOTING.md) first.
         **Remove access codes and serial numbers** from anything you paste.
+        English or German is fine. / Deutsch oder Englisch, beides ist okay.
   - type: input
     id: version
     attributes:
       label: Loopimir version
       description: Shown in the page footer, or run `/opt/loopimir/loopimir --version`
-      placeholder: v0.2.0-rc2
+      placeholder: v0.2.0-rc21
     validations: {required: true}
   - type: dropdown
     id: model
@@ -45,5 +46,5 @@ body:
     id: logs
     attributes:
       label: Logs
-      description: "`journalctl -u loopimir -n 200 --no-pager` (and `slice.log` for slicing problems)"
+      description: "`journalctl -u loopimir -n 200 --no-pager` (and `~/.local/share/loopimir/jobs/<job>/work/slice.log` for slicing problems; Studio mode: `journalctl --user -u loopimir-bambu -n 200 --no-pager`)"
       render: shell

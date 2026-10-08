@@ -43,10 +43,12 @@ Open the board page → *Firmware update* → choose the **web‑update** file. 
 - Firmware 1.16+ reconnects or restarts by itself when the connection is lost and writes the reason into `http://<IP>/log.txt` (lines with *Selbstheilung*, *WLAN getrennt (Grund …)*, *Speicher:*). Wait a few minutes before unplugging it.
 
 ### Signals
-The print file tells the board what to do through the nozzle target temperature: `M104 S1` door close · `S4` door open (print start) · `S2` door open + fan on · `S3` fan off + bend · `S5` door close. The board only *reads* the printer's status, so the printer does **not** need LAN mode for the board.
+The print file tells the board what to do through the nozzle target temperature: `M104 S1` door close · `S4` door open (print start) · `S2` door open + fan on · `S3` fan off + bend · `S5` door close. Loopimir writes these into the print file and checks them before sending.
 
 ### Wiring
 Door: GPIO 7 close · 15 open · 8 current. Bender: 13 up · 12 down · 6 current. Fan: 14 (MOSFET, 24 V blower, check polarity). Door button 10, bender button 11.
+
+---
 
 ## Deutsch
 
@@ -59,8 +61,12 @@ Door: GPIO 7 close · 15 open · 8 current. Bender: 13 up · 12 down · 6 curren
 Beide liegen auf der [Release‑Seite](https://github.com/DaniAeschbach/loopimir/releases).
 
 ### Firmware installieren (erstmalig)
-1. **Erst die Original‑Firmware sichern** (enthält WLAN‑Passwort und Druckerdaten, privat halten): `esptool.py --port <port> read_flash 0 0x1000000 original_backup.bin`
-2. Board per USB anschließen und die **usb‑full**‑Datei flashen: `esptool.py --chip esp32s3 --port <port> write_flash 0x0 loopimir-board-vX-usb-full.bin`. `<port>` ist der USB‑Anschluss des Boards: **Windows** `COM3` (siehe *Geräte‑Manager → Anschlüsse*), **Linux** `/dev/ttyACM0` (`ls /dev/tty*` vor und nach dem Einstecken vergleichen), **macOS** `/dev/cu.usbmodem…`. Wird nichts angezeigt: Datenkabel verwenden (nicht nur Ladekabel) und beim Einstecken **BOOT** gedrückt halten.
+1. `pip install esptool`. **Erst die Original‑Firmware sichern** (enthält WLAN‑Passwort und Druckerdaten, privat halten):
+   `esptool.py --port <port> read_flash 0 0x1000000 original_backup.bin`
+2. Board per USB anschließen und die **usb‑full**‑Datei flashen:
+   `esptool.py --chip esp32s3 --port <port> write_flash 0x0 loopimir-board-vX-usb-full.bin`
+
+   `<port>` ist der USB‑Anschluss des Boards: **Windows** `COM3` (siehe *Geräte‑Manager → Anschlüsse*), **Linux** `/dev/ttyACM0` (`ls /dev/tty*` vor und nach dem Einstecken vergleichen), **macOS** `/dev/cu.usbmodem…`. Wird nichts angezeigt: Datenkabel verwenden (nicht nur Ladekabel) und beim Einstecken **BOOT** gedrückt halten.
 3. Das Board öffnet das WLAN **Loopimir‑Setup**; verbinden, **http://192.168.4.1/setup** öffnen und **WLAN** sowie **IP, Zugangscode und Seriennummer des Druckers** und optional ein **Board‑Passwort** (mindestens 6 Zeichen; dasselbe in Loopimir unter *Drucker → Board‑Passwort* eintragen) eintragen. Ohne Passwort kann jeder in deinem Netz die Tür bewegen oder das Board neu flashen. Zum Entfernen später auf `/setup` im Passwortfeld `-` eintragen und speichern.
 4. Das Board startet neu. Seine **IP‑Adresse** steht in der Geräteliste deines Routers (Name *loopimir*); `http://<IP>` öffnen und im Router eine **feste IP** vergeben. (`http://loopimir.local` geht oft auch, aber die Namenssuche scheitert auf manchen Windows‑PCs und Browsern — die IP geht immer.)
 
@@ -83,3 +89,9 @@ Board‑Seite → *Firmware‑Update* → die **web‑update**‑Datei wählen. 
 ### Board‑Seite nicht erreichbar
 - **WLAN‑Signal** auf der Board‑Seite prüfen (*Einstellungen*, letzte Zeile): schlechter als etwa −70 dBm ist unzuverlässig. Router oder Repeater näher stellen. Das Board kann nur 2,4 GHz.
 - Firmware 1.16+ verbindet sich bei Verbindungsverlust selbst neu oder startet neu und schreibt den Grund in `http://<IP>/log.txt` (Zeilen mit *Selbstheilung*, *WLAN getrennt (Grund …)*, *Speicher:*). Ein paar Minuten warten, bevor man den Strom abzieht.
+
+### Signale
+Die Druckdatei steuert das Board über die Düsen‑Solltemperatur: `M104 S1` Tür zu · `S4` Tür auf (Druckstart) · `S2` Tür auf + Lüfter an · `S3` Lüfter aus + Biegen · `S5` Tür zu. Loopimir schreibt sie in die Druckdatei und prüft sie vor dem Senden.
+
+### Verkabelung
+Tür: GPIO 7 zu · 15 auf · 8 Strom. Bender: 13 hoch · 12 runter · 6 Strom. Lüfter: 14 (MOSFET, 24‑V‑Gebläse, Polarität prüfen). Tür‑Taster 10, Bender‑Taster 11.
